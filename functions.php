@@ -4,11 +4,6 @@ function zm_gmaps_scripts() {
 
     $dependencies[] = 'jquery';
 
-    // @todo use version number instead
-    // if ( get_option( 'zm_login_register_version' ) ){
-    //     $dependencies[] = 'zm-register-login-script';
-    // }
-
     wp_enqueue_script( 'zm-gmaps-script', plugin_dir_url( __FILE__ ) . 'scripts.js', $dependencies  );
     // wp_enqueue_style( 'zm-gmaps-style', plugin_dir_url( __FILE__ ) . 'styles.css' );
 }
@@ -19,11 +14,14 @@ function zm_gmaps_header(){
 }
 add_action('wp_head', 'zm_gmaps_header');
 
-function zm_gmaps(){
-    global $post; ?>
+function zm_gmaps_mini(){
+
+    global $post;
+    global $post_type;
+    $post_id = $post->ID;
+    ?>
     <!-- Map -->
-    <h2 class="title">Venue</h2>
-    <div class="map-container" id="bmx_rs_map_handle" data-post_type="events" data-template="mini-map.php" data-post_id="<?php print $post->ID; ?>">
+    <div class="map-container" id="bmx_rs_map_handle" data-post_type="<?php print $post_type; ?>" data-template="mini-map.php" data-post_id="<?php print $post_id; ?>">
         <div id="bmx_rs_map_target"></div>
         <div class="zm-loading-icon" style="display: none;"></div>
     </div>
@@ -62,3 +60,10 @@ function zm_gmaps_settings(){?>
     </fieldset>
 <?php }
 add_action('zm_gmaps_settings', 'zm_gmaps_settings');
+
+function zm_gmaps_large_shortcode(){?>
+<div class="maps-container">
+    <div id="map_canvas" style="top: 127px; width: 100%; height: 100%;"></div>
+</div>
+<?php }
+add_shortcode( 'zm_gmaps_large', 'zm_gmaps_large_shortcode' );
