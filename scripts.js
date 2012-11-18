@@ -17,8 +17,8 @@ jQuery( document ).ready(function( $ ){
             lat = 41.1343;
             lon = -81.8559;
         } else {
-            lat = _user.lat;
-            lon = _user.lon;
+            lat = _user.location.lat;
+            lon = _user.location.lon;
         }
 
         var myOptions = {
@@ -45,7 +45,7 @@ jQuery( document ).ready(function( $ ){
         city = $('#track_city').html();
         region = $('#track_region').html();
 
-        var start = '"'+_user.city +','+ _user.region+'"';
+        var start = '"'+_user.location.city +','+ _user.location.region+'"';
         var end = '"'+city+','+region+'"';
 
         var request = {
@@ -84,8 +84,8 @@ jQuery( document ).ready(function( $ ){
                 success: function( msg ){
                     $( params.target_div ).fadeIn().html( msg );
                     if ( typeof _user != "undefined" ){
-                        $('#_user_city_target').html( _user.city );
-                        $('#_user_region_target').html( _user.region );
+                        $('#_user_city_target').html( _user.location.city );
+                        $('#_user_region_target').html( _user.location.region );
                     }
                     get_google_map( document.getElementById('mini_map_target') );
 
