@@ -17,7 +17,12 @@ if ( $_POST['post_type'] == 'events' ) {
 ?>
 <div class="map-container">
     <div id="mini_map_target" style="height: 240px; width: 300px; border: 1px solid #ddd;"></div>
+
+    <div id="venues_city" style="display: none;"><?php print Venues::getAttribute( array( 'key' => 'city', 'venues_id' => $venues_id ) ); ?></div>
+    <div id="venues_region" style="display: none;"><?php print Venues::getAttribute( array( 'key' => 'state', 'venues_id' => $venues_id ) ); ?></div>
+    <div id="venues_lat" style="display: none;"><?php print get_post_meta( $venues_id, 'lat', true ); ?></div>
+    <div id="venues_long" style="display: none;"><?php print get_post_meta( $venues_id, 'long', true ); ?></div>
+
     <!-- <div id="directionsPanel"></div> -->
-    <span id="track_city" style="display: none;"><?php print Venues::getAttribute( array( 'key' => 'city', 'venues_id' => $venues_id ) ); ?></span>
-    <span id="track_region" style="display: none;"><?php print Venues::getAttribute( array( 'key' => 'state', 'venues_id' => $venues_id ) ); ?></span>
+
 </div>
