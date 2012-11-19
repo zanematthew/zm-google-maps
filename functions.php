@@ -21,8 +21,8 @@ function zm_gmaps_mini(){
     $post_id = $post->ID;
     ?>
     <!-- Map -->
-    <div class="map-container" id="bmx_rs_map_handle" data-post_type="<?php print $post_type; ?>" data-template="mini-map.php" data-post_id="<?php print $post_id; ?>">
-        <div id="bmx_rs_map_target"></div>
+    <div class="map-container" id="venues_map_handle" data-post_type="<?php print $post_type; ?>" data-template="mini-map.php" data-post_id="<?php print $post_id; ?>">
+        <div id="veneus_map_target"></div>
         <div class="zm-loading-icon" style="display: none;"></div>
     </div>
     <!-- -->
