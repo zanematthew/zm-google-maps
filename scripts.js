@@ -7,7 +7,7 @@ jQuery( document ).ready(function( $ ){
      *
      * @todo Some how lets not have this conditional scattered
      */
-    if ( typeof _user != "object" && _user.location != "object" ){
+    if ( typeof _user == "object" && typeof _user.location == "object" ){
         var directionsDisplay;
         var directionsService = new google.maps.DirectionsService();
     }
@@ -54,7 +54,9 @@ jQuery( document ).ready(function( $ ){
          * the Google Directions and do NOT show the default marker.
          * Instead we start "A" and end "B".
          */
-        if ( typeof _user != "object" && _user.location != "object" ){
+        console.log( typeof _user );
+        console.log( typeof _user.location );
+        if ( typeof _user == "object" && typeof _user.location == "object" ){
             directionsDisplay = new google.maps.DirectionsRenderer();
             directionsDisplay.setMap(map);
             directionsDisplay.setPanel(document.getElementById("directionsPanel"));
@@ -113,7 +115,7 @@ jQuery( document ).ready(function( $ ){
                 success: function( msg ){
                     $( params.target_div ).fadeIn().html( msg );
                     get_google_map( document.getElementById('mini_map_target') );
-                    if ( typeof _user != "object" && _user.location != "object" ){
+                    if ( typeof _user == "object" && typeof _user.location == "object" ){
                         calcRoute();
                     }
                 }
