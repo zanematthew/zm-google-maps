@@ -16,7 +16,7 @@ if ( $_POST['post_type'] == 'events' ) {
 
 ?>
 <div class="map-container">
-    <div id="mini_map_target" style="height: 240px; width: 450px; border: 1px solid #ddd;"></div>
+    <div id="mini_map_target"></div>
 
     <div id="venues_city" style="display: none;"><?php print Venues::getAttribute( array( 'key' => 'city', 'venues_id' => $venues_id ) ); ?></div>
     <div id="venues_region" style="display: none;"><?php print Venues::getAttribute( array( 'key' => 'state', 'venues_id' => $venues_id ) ); ?></div>
