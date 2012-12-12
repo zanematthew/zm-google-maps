@@ -54,8 +54,6 @@ jQuery( document ).ready(function( $ ){
          * the Google Directions and do NOT show the default marker.
          * Instead we start "A" and end "B".
          */
-        console.log( typeof _user );
-        console.log( typeof _user.location );
         if ( typeof _user == "object" && typeof _user.location == "object" ){
             directionsDisplay = new google.maps.DirectionsRenderer();
             directionsDisplay.setMap(map);
