@@ -59,7 +59,7 @@ function zm_gmaps_settings(){?>
         </div>
     </fieldset>
 <?php }
-add_action('zm_gmaps_settings', 'zm_gmaps_settings');
+add_action('zm_ev_after_settings', 'zm_gmaps_settings');
 
 function zm_gmaps_large_shortcode(){?>
 <div class="maps-container">
