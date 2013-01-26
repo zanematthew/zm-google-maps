@@ -6,7 +6,7 @@
  * Version: 1
  * Author: Zane M. Kolnik
  * Author URI: http://zanematthew.com/
- * License: GP
+ * License: GPL
  */
 
 define( 'ZM_GMAPS_VERSION', '1' );
